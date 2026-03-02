@@ -1,0 +1,15 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "package-name": "py_maskinporten",
+      "extra-files": ["pyproject.toml",
+        {
+          "path": "uv.lock",
+          "type": "toml",
+          "jsonpath": "$.package[?(@.name.value=='py_maskinporten')].version"
+        }
+      ] 
+  }
+}
+}
