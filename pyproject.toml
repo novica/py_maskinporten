@@ -1,6 +1,6 @@
 [project]
 name = "py_maskinporten"
-version = "0.10.0"
+version = "0.10.1"
 description = "Fetch Maskinporten Token"
 readme = "README.md"
 authors = [
