@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.2](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.1...py_maskinporten-v0.10.2) (2026-03-06)
+
+
+### Bug Fixes
+
+* docker image runs the app ([be6ac59](https://github.com/novica/py_maskinporten/commit/be6ac5970496aa98e47aa03257e0d0edb0474af6))
+
 ## [0.10.1](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.0...py_maskinporten-v0.10.1) (2026-03-06)
 
 
