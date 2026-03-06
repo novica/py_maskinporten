@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.5](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/py_maskinporten-v0.10.4...py_maskinporten-v0.10.5) (2026-03-06)
+
+
+### Bug Fixes
+
+* update dependencies in toml ([c1ab5ff](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/commit/c1ab5ff201b50576a6c0adee1c22eb1200ad496d))
+
 ## [0.10.4](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/py_maskinporten-v0.10.3...py_maskinporten-v0.10.4) (2026-03-06)
 
 
