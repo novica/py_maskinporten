@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Novica Nakov", email = "nnovica@gmail.com" }
 ]
-license = "EUPL-1.2"
+license = "Apache-2.0"
 
 requires-python = ">=3.13"
 dependencies = [
