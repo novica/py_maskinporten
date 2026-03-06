@@ -3,6 +3,13 @@
 This is a python package to request a token from Maskinporten - the Norwegian 
 national access control solution for businesses that exchange data.
 
+```mermaid
+graph LR
+  Consumer["Application"] -- request token ---> Maskinporten
+  Maskinporten -- issue new token ---> Consumer
+  Consumer -- use token ---> Service["External Service"]
+```
+
 ## Example usage
 
 This assumes that: 
