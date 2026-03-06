@@ -23,7 +23,7 @@ py_maskinporten = "py_maskinporten:main"
 dev = [
   "pytest>=8.3.3",
   "ruff>=0.6.1",
-  "ty>=0.0.19",
+  "ty>=0.0.21",
 ]
 
 [build-system]
