@@ -57,4 +57,4 @@ ENV \
     KID=demo \
     SCOPE=demo 
 
-ENTRYPOINT ["flask", "--app", "app.py", "run", "--host=0.0.0.0"]
+ENTRYPOINT ["maskinporten-web"]
