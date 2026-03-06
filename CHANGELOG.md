@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.0...py_maskinporten-v0.10.1) (2026-03-06)
+
+
+### Documentation
+
+* Add mermaid diagram for token request flow ([52516b6](https://github.com/novica/py_maskinporten/commit/52516b65886ba7689f8c8cc0dcbba305015ed9a5))
+
 ## [0.10.0](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.9.0...py_maskinporten-v0.10.0) (2026-03-06)
 
 
