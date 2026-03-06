@@ -34,5 +34,5 @@ print(f"Expires In: {expires_in} seconds")
 Or with docker if you want to test the library through a web browser:
 
 ```bash
-docker run -p 5000:5000 --env-file .env ghcr.io/novica/py_maskinporten:main
+docker run -p 5000:5000 --env-file .env ghcr.io/NorwegianVeterinaryInstitute/py_maskinporten:main
 ```
