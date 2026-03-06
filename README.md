@@ -23,3 +23,9 @@ access_token, expires_in = request_maskinporten_token("my_api", "test")
 print(f"Access Token: {access_token}")
 print(f"Expires In: {expires_in} seconds")
 ```
+
+Or with docker if you want to test the library through a web browser:
+
+```bash
+docker run -p 5000:5000 --env-file .env ghcr.io/novica/py_maskinporten:latest
+```
