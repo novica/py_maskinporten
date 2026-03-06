@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.4](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/py_maskinporten-v0.10.3...py_maskinporten-v0.10.4) (2026-03-06)
+
+
+### Documentation
+
+* update README.md ([40ee683](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/commit/40ee683475508387f5e1d99da6fc86a1f6bef2f8))
+
 ## [0.10.3](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.2...py_maskinporten-v0.10.3) (2026-03-06)
 
 
