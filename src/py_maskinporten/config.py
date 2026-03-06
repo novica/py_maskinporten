@@ -1,6 +1,10 @@
 # This file holds some constants and environment variable configurations
 
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 default_config = {
     "PROD_MASKINPORTEN_ISSUER": "https://maskinporten.no/token",

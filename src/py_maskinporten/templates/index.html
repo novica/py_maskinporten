@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maskinporten Token Fetcher</title>
+  </head>
+  <body>
+    <h1>Maskinporten Token Fetcher</h1>
+    <p>
+      This is a simple Flask application to demonstrate how to fetch tokens from
+      Maskinporten. Use the form below to select the environment and view the
+      corresponding issuer URL and configuration. Make sure to set the required
+      environment variables in the Docker container or your local environment for 
+      the application to work properly.
+    </p>
+
+    <form method="POST" action="/">
+      <label for="environment">Choose environment:</label>
+      <select name="environment" id="environment">
+        <option value="">-- select --</option>
+        <option value="test"  {% if selected_env=="test" %}selected{% endif %}>
+          Test
+        </option>
+        <option  value="prod"  {% if selected_env=="prod" %}selected{% endif %}>
+          Production
+        </option>
+      </select>
+      <button type="submit">Set Environment</button>
+    </form>
+
+    <!-- Only shown after environment is chosen -->
+    {% if issuer_url %}
+    <p><strong>Issuer URL:</strong> {{ issuer_url }}</p>
+    {% endif %}
+
+    <hr />
+
+    <h2>Configuration</h2>
+    {% if config_error %}
+    <p style="color: red;"><strong>Configuration error:</strong> {{ config_error }}</p>
+    {% endif %}
+
+    {% if config %}
+    <ul>
+      <li><strong>Client ID:</strong> {{ config["MASKINPORTEN_CLIENT_ID"] }}</li>
+      <li><strong>Scope:</strong> {{ config["SCOPE"] }}</li>
+      <li><strong>KID:</strong> {{ config["KID"]}}</li>
+      <li><strong>Private Key:</strong> {{ config["PRIVATE_KEY"][:30] }}</li>
+    </ul>
+    {% endif %}
+
+<button onclick="getToken()">Get Token</button>
+
+<div id="token-output">
+    <p>Token will appear here...</p>
+</div>
+
+<script>
+    let fullToken = null; 
+    async function getToken() {
+        const env = document.getElementById("environment").value;
+        const output = document.getElementById("token-output");
+        output.innerHTML = "<p>Fetching...</p>";
+
+        const response = await fetch("/token?env=" + env);
+        const data = await response.json();
+        fullToken = data.access_token;
+
+        if (data.error) {
+            output.innerHTML = `<p style="color: red;"><strong>Error:</strong> ${data.error}</p>`;
+        } else {
+          const preview = data.access_token.substring(0, 30) + "...";
+            output.innerHTML = `
+                <p><strong>Expires In:</strong> ${data.expires_in}</p>
+                <p><strong>Access Token:</strong></p>
+                <p><strong>Token:</strong> <code>${preview}</code>
+                  <button onclick="copyToken()">Copy full token</button>
+                </p>
+            `;
+        }
+    }
+    function copyToken() {
+    navigator.clipboard.writeText(fullToken).then(() => {
+        alert("Token copied to clipboard!");
+    });
+}
+</script>
+  </body>
+</html>

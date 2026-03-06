@@ -46,12 +46,15 @@ FROM python:${PYTHON_VERSION}-slim
 # remove debianisms not needed in application containers
 RUN rm -rf /media /mnt /boot /home /opt /srv /var
 
-# COPY --from=builder /app/ /app/
+COPY --from=builder /app/ /app/
 
-# ENV PATH=/app/bin:$PATH
+ENV PATH=/app/bin:$PATH
 
-# ENV \
-#     GRANIAN_HOST=0.0.0.0 \
-#     GRANIAN_PORT=8000
+# Provide environment variables for the application. 
+ENV \
+    PRIVATE_KEY=demo \
+    MASKINPORTEN_CLIENT_ID=demo \
+    KID=demo \
+    SCOPE=demo 
 
-# ENTRYPOINT ["granian", "--interface", "asgi", "demo.web:app"]
+ENTRYPOINT ["flask", "--app", "app.py", "run", "--host=0.0.0.0"]

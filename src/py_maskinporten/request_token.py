@@ -5,12 +5,11 @@ import uuid
 from py_maskinporten.config import load_config
 
 
-def request_maskinporten_token(api_name: str, api_env: str) -> tuple:
+def request_maskinporten_token(api_env: str) -> tuple:
     """
     Requests an access token from Maskinporten using API-specific credentials.
 
     Args:
-        api_name (str): The name of the API to fetch a token for.
         api_env (str): The environment of the API (e.g., "prod" or "test").
 
     Returns:
@@ -55,7 +54,7 @@ def request_maskinporten_token(api_name: str, api_env: str) -> tuple:
         access_token = response_data.get("access_token")
         expires_in = response_data.get("expires_in")
         print(
-            f"Access token for {api_name} in {api_env} environment fetched successfully."
+            f"Access token for {DEFAULTS['SCOPE']} in {api_env} environment fetched successfully."
         )
         return access_token, expires_in
     else:
