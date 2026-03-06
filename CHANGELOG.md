@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.3](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.2...py_maskinporten-v0.10.3) (2026-03-06)
+
+
+### Documentation
+
+* Update README.md ([a1f8eda](https://github.com/novica/py_maskinporten/commit/a1f8edac704b4dc479d80c1e82712bf6abcf9421))
+
 ## [0.10.2](https://github.com/novica/py_maskinporten/compare/py_maskinporten-v0.10.1...py_maskinporten-v0.10.2) (2026-03-06)
 
 
