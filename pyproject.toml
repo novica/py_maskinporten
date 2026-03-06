@@ -1,7 +1,7 @@
 [project]
 name = "py_maskinporten"
 version = "0.9.0"
-description = "Fetch Maskinporten token"
+description = "Fetch Maskinporten Token"
 readme = "README.md"
 authors = [
     { name = "Novica Nakov", email = "nnovica@gmail.com" }
@@ -10,15 +10,16 @@ license = "EUPL-1.2"
 
 requires-python = ">=3.13"
 dependencies = [
-    "datetime",
-    "jwcrypto",
     "httpx",
+    "jwcrypto",
     "pyjwt",
-    "uuid"
+    "flask>=3.1.3",
+    "python-dotenv>=1.2.2",
 ]
 
 [project.scripts]
-py_maskinporten = "py_maskinporten:main"
+py_maskinporten = "py_maskinporten:main" 
+maskinporten-web = "py_maskinporten.web.app:main"
 
 [build-system]
 requires = ["uv_build>=0.9.0"]
@@ -26,7 +27,6 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "asgiref>=3.8.1",
     "ruff>=0.6.1",
     "ty>=0.0.19",
     "pytest>=8.3.3",
