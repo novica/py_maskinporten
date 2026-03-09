@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, timezone
 import httpx
 from jwt import encode
 import uuid
-from py_maskinporten.config import load_config
+from pymaskinporten.config import load_config
 
 
 def request_maskinporten_token(api_env: str) -> tuple:

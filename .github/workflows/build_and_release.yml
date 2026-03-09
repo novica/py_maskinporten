@@ -38,7 +38,7 @@ jobs:
 
       - name: Rename wheel
         run: |
-          mv dist/*.whl dist/py_maskinporten-${{ env.VERSION }}-py3-none-${{ env.PLATFORM_TAG }}.whl || ls -l dist/
+          mv dist/*.whl dist/pymaskinporten-${{ env.VERSION }}-py3-none-${{ env.PLATFORM_TAG }}.whl || ls -l dist/
 
       - name: Upload wheel
         uses: actions/upload-artifact@v4

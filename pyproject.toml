@@ -1,5 +1,5 @@
 [project]
-name = "py_maskinporten"
+name = "pymaskinporten"
 version = "0.11.0"
 description = "Fetch Maskinporten Token"
 readme = "README.md"
@@ -17,8 +17,8 @@ dependencies = [
 ]
 
 [project.scripts]
-maskinporten-web = "py_maskinporten.app:main"
-py_maskinporten = "py_maskinporten:main"
+maskinporten_web = "pymaskinporten.app:main"
+pymaskinporten = "pymaskinporten:main"
 
 [dependency-groups]
 dev = [

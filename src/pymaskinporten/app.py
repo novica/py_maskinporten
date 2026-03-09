@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request
-from py_maskinporten.config import load_config
-from py_maskinporten.request_token import request_maskinporten_token
+from pymaskinporten.config import load_config
+from pymaskinporten.request_token import request_maskinporten_token
 from dotenv import load_dotenv
 
 # Configure application

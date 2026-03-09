@@ -1,4 +1,4 @@
-# py_maskinporten
+# pymaskinporten
 
 This is a python package to request a token from Maskinporten - the Norwegian 
 national access control solution for businesses that exchange data.
@@ -25,7 +25,7 @@ os.environ["MASKINPORTEN_CLIENT_ID"] = "your_client_id"
 os.environ["SCOPE"] = "your_scope"
 
 # get the access token
-from py_maskinporten.request_token import request_maskinporten_token
+from pymaskinporten.request_token import request_maskinporten_token
 access_token, expires_in = request_maskinporten_token("my_api", "test")
 print(f"Access Token: {access_token}")
 print(f"Expires In: {expires_in} seconds")
@@ -41,5 +41,5 @@ cat > .env <<EOF
 >SCOPE="your-scope"
 >EOF
 
-docker run -p 5000:5000 --env-file .env ghcr.io/norwegianveterinaryinstitute/py_maskinporten:main
+docker run -p 5000:5000 --env-file .env ghcr.io/norwegianveterinaryinstitute/pymaskinporten:main
 ```
