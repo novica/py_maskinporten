@@ -19,34 +19,34 @@ def request_maskinporten_token(api_env: str) -> tuple:
         Exception: If the token request fails.
 
     Examples:
-        request_maskinporten_token("my_api", "test")
+        request_maskinporten_token(api_env = "test")
     """
 
     if api_env == "test":
-        aud = "https://test.maskinporten.no/token"
+        issuer_url = "https://test.maskinporten.no/token"
     else:
-        aud = "https://maskinporten.no/token"
+        issuer_url = "https://maskinporten.no/token"
 
-    DEFAULTS = load_config()
+    cfg = load_config()
 
-    header = {"kid": DEFAULTS["KID"]}
+    header = {"kid": cfg.KID}
     if not header["kid"]:
         raise ValueError("JWK must include 'kid'.")
 
     payload = {
-        "aud": aud,
-        "iss": DEFAULTS["MASKINPORTEN_CLIENT_ID"],
-        "scope": DEFAULTS["SCOPE"],
+        "aud": issuer_url,
+        "iss": cfg.MASKINPORTEN_CLIENT_ID,
+        "scope": cfg.SCOPE,
         "iat": datetime.now(tz=timezone.utc),
         "exp": datetime.now(tz=timezone.utc) + timedelta(minutes=1),
         "jti": str(uuid.uuid4()),
     }
 
-    private_key = DEFAULTS["PRIVATE_KEY"]
+    private_key = cfg.PRIVATE_KEY
     jwt_assertion = encode(payload, private_key, algorithm="RS256", headers=header)
 
     response = httpx.post(
-        DEFAULTS[f"{api_env.upper()}_MASKINPORTEN_ISSUER"],
+        issuer_url,
         data={
             "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
             "assertion": jwt_assertion,
@@ -59,7 +59,7 @@ def request_maskinporten_token(api_env: str) -> tuple:
         access_token = response_data.get("access_token")
         expires_in = response_data.get("expires_in")
         print(
-            f"Access token for {DEFAULTS['SCOPE']} in {api_env} environment fetched successfully."
+            f"Access token for {cfg.SCOPE} in {api_env} environment fetched successfully."
         )
         return access_token, expires_in
     else:

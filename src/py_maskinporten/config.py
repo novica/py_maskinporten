@@ -1,42 +1,56 @@
-from typing import Dict, Optional
-import os
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
 from dotenv import load_dotenv
+import os
+from pydantic import BaseModel, Field, field_validator
+from typing import Dict, Optional
 
 
-REQUIRED_ENV_VARS = [
-    "PRIVATE_KEY",
-    "MASKINPORTEN_CLIENT_ID",
-    "KID",
-    "SCOPE",
-]
+class MaskinportenSecrets(BaseModel):
+    PRIVATE_KEY: str = Field(..., description="PEM string or file contents")
+    MASKINPORTEN_CLIENT_ID: str = Field(
+        ..., description="Client ID used for Maskinporten"
+    )
+    KID: str = Field(..., description="Key ID used in JWT header")
+    SCOPE: str = Field(..., description="Space-delimited scopes")
+
+    @field_validator("PRIVATE_KEY")
+    def validate_private_key(cls, v: str) -> str:
+        # Skip strict validation unless explicitly enabled
+        if os.getenv("STRICT_KEY_VALIDATION", "").lower() not in {"1", "true", "yes"}:
+            return v
+
+        # If strict validation enabled then parse PEM
+        try:
+            load_pem_private_key(v.encode(), password=None)
+        except Exception as exc:
+            raise ValueError(f"Invalid PRIVATE_KEY PEM: {exc}") from exc
+
+        return v
 
 
 def load_config(
     deployment: str = "local", secret_scope: Optional[str] = None
-) -> Dict[str, str]:
-    """
-    Load secret configuration values from environment variables (local)
-    or Azure Key Vault (Databricks), depending on deployment.
-
-    Returns a dictionary containing only secret values.
-    """
+) -> MaskinportenSecrets:
     if deployment == "local":
         load_dotenv()
-        return _load_local_env()
+        raw = _load_local_env()
 
-    if deployment == "azure-databricks":
+    elif deployment == "azure-databricks":
         if not secret_scope:
             raise ValueError("secret_scope is required for Azure Databricks")
-        return _load_azure_secrets(secret_scope)
+        raw = _load_azure_secrets(secret_scope)
 
-    raise ValueError(f"Unknown deployment type: {deployment}")
+    else:
+        raise ValueError(f"Unknown deployment type: {deployment}")
+
+    return MaskinportenSecrets(**raw)
 
 
 def _load_local_env() -> Dict[str, str]:
     """Load secret config from environment variables."""
     config: Dict[str, str] = {}
 
-    for key in REQUIRED_ENV_VARS:
+    for key in MaskinportenSecrets.model_fields.keys():
         value = os.getenv(key)
         if value is None:
             raise RuntimeError(f"Missing required environment variable: {key}")
@@ -49,7 +63,7 @@ def _load_azure_secrets(secret_scope: str) -> Dict[str, str]:
     """Load secret config from Azure Key Vault."""
     config: Dict[str, str] = {}
 
-    for key in REQUIRED_ENV_VARS:
+    for key in MaskinportenSecrets.model_fields.keys():
         value = dbutils.secrets.get(scope=secret_scope, key=key)  # noqa: F821 # type: ignore
         if value is None:
             raise RuntimeError(f"Missing required secret in Key Vault: {key}")
