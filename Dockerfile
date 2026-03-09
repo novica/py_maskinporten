@@ -50,11 +50,4 @@ COPY --from=builder /app/ /app/
 
 ENV PATH=/app/bin:$PATH
 
-# Provide environment variables for the application. 
-ENV \
-    PRIVATE_KEY=demo \
-    MASKINPORTEN_CLIENT_ID=demo \
-    KID=demo \
-    SCOPE=demo 
-
 ENTRYPOINT ["maskinporten-web"]
