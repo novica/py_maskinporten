@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.11.0](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/py_maskinporten-v0.10.5...py_maskinporten-v0.11.0) (2026-03-09)
+
+
+### Features
+
+* add logic to handle secrets from azure key vault in databricks ([b7a5067](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/commit/b7a50672e98da498813ffdabb6e4585b5ecf24b9))
+* add pydantic model for config ([5c9db87](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/commit/5c9db875f24b0317e390816bbdb8a963d10d9643))
+
+
+### Bug Fixes
+
+* don't set the env vars in dockerfile ([b569cc1](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/commit/b569cc10fb7b6fe666b1f84a296b6a66346a9127))
+
 ## [0.10.5](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/py_maskinporten-v0.10.4...py_maskinporten-v0.10.5) (2026-03-06)
 
 
