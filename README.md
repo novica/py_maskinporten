@@ -34,5 +34,12 @@ print(f"Expires In: {expires_in} seconds")
 Or with docker if you want to test the library through a web browser the image opens a `flask` app:
 
 ```bash
+cat > .env <<EOF
+>PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+>MASKINPORTEN_CLIENT_ID="your-client-id"
+>KID="your-kid"
+>SCOPE="your-scope"
+>EOF
+
 docker run -p 5000:5000 --env-file .env ghcr.io/norwegianveterinaryinstitute/py_maskinporten:main
 ```
