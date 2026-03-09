@@ -1,19 +1,7 @@
-# This file holds some constants and environment variable configurations
-
+from typing import Dict, Optional
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file if it exists
-load_dotenv()
-
-default_config = {
-    "PROD_MASKINPORTEN_ISSUER": "https://maskinporten.no/token",
-    "TEST_MASKINPORTEN_ISSUER": "https://test.maskinporten.no/token",
-    "PRIVATE_KEY": None,
-    "MASKINPORTEN_CLIENT_ID": None,
-    "KID": None,
-    "SCOPE": None,
-}
 
 REQUIRED_ENV_VARS = [
     "PRIVATE_KEY",
@@ -23,14 +11,48 @@ REQUIRED_ENV_VARS = [
 ]
 
 
-def load_config() -> dict:
-    config = {}
-    for key, default_value in default_config.items():
-        if key in REQUIRED_ENV_VARS:
-            value = os.getenv(key)
-            if value is None:
-                raise RuntimeError(f"Missing required environment variable: {key}")
-            config[key] = value
-        else:
-            config[key] = os.getenv(key, default=default_value)
+def load_config(
+    deployment: str = "local", secret_scope: Optional[str] = None
+) -> Dict[str, str]:
+    """
+    Load secret configuration values from environment variables (local)
+    or Azure Key Vault (Databricks), depending on deployment.
+
+    Returns a dictionary containing only secret values.
+    """
+    if deployment == "local":
+        load_dotenv()
+        return _load_local_env()
+
+    if deployment == "azure-databricks":
+        if not secret_scope:
+            raise ValueError("secret_scope is required for Azure Databricks")
+        return _load_azure_secrets(secret_scope)
+
+    raise ValueError(f"Unknown deployment type: {deployment}")
+
+
+def _load_local_env() -> Dict[str, str]:
+    """Load secret config from environment variables."""
+    config: Dict[str, str] = {}
+
+    for key in REQUIRED_ENV_VARS:
+        value = os.getenv(key)
+        if value is None:
+            raise RuntimeError(f"Missing required environment variable: {key}")
+        config[key] = value
+
+    return config
+
+
+def _load_azure_secrets(secret_scope: str) -> Dict[str, str]:
+    """Load secret config from Azure Key Vault."""
+    config: Dict[str, str] = {}
+
+    for key in REQUIRED_ENV_VARS:
+        value = dbutils.secrets.get(scope=secret_scope, key=key)  # noqa: F821 # type: ignore
+        if value is None:
+            raise RuntimeError(f"Missing required secret in Key Vault: {key}")
+        config[key] = value
+
     return config

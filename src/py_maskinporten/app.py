@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request
-from py_maskinporten.config import load_config, default_config
+from py_maskinporten.config import load_config
 from py_maskinporten.request_token import request_maskinporten_token
 from dotenv import load_dotenv
 
@@ -34,9 +34,9 @@ def index():
     if request.method == "POST":
         selected_env = request.form.get("environment")
         if selected_env == "prod":
-            issuer_url = default_config["PROD_MASKINPORTEN_ISSUER"]
+            issuer_url = "https://maskinporten.no/token"
         elif selected_env == "test" or selected_env is None:
-            issuer_url = default_config["TEST_MASKINPORTEN_ISSUER"]
+            issuer_url = "https://test.maskinporten.no/token"
 
     return render_template(
         "index.html",

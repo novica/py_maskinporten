@@ -22,6 +22,11 @@ def request_maskinporten_token(api_env: str) -> tuple:
         request_maskinporten_token("my_api", "test")
     """
 
+    if api_env == "test":
+        aud = "https://test.maskinporten.no/token"
+    else:
+        aud = "https://maskinporten.no/token"
+
     DEFAULTS = load_config()
 
     header = {"kid": DEFAULTS["KID"]}
@@ -29,7 +34,7 @@ def request_maskinporten_token(api_env: str) -> tuple:
         raise ValueError("JWK must include 'kid'.")
 
     payload = {
-        "aud": DEFAULTS[f"{api_env.upper()}_MASKINPORTEN_ISSUER"],
+        "aud": aud,
         "iss": DEFAULTS["MASKINPORTEN_CLIENT_ID"],
         "scope": DEFAULTS["SCOPE"],
         "iat": datetime.now(tz=timezone.utc),
