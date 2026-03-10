@@ -1,3 +1,5 @@
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 from dotenv import load_dotenv
 import os
@@ -35,10 +37,15 @@ def load_config(
         load_dotenv()
         raw = _load_local_env()
 
-    elif deployment == "azure-databricks":
+    elif deployment == "databricks":
         if not secret_scope:
-            raise ValueError("secret_scope is required for Azure Databricks")
-        raw = _load_azure_secrets(secret_scope)
+            raise ValueError("secret_scope is required for Databricks")
+        raw = _load_databricks_secrets(secret_scope)
+
+    elif deployment == "azure":
+        if not key_vault_uri :
+            raise ValueError("key_vault_uri is required for Azure Key Vault")
+        raw = _load_azure_key_vault_secrets(key_vault_uri)
 
     else:
         raise ValueError(f"Unknown deployment type: {deployment}")
@@ -59,8 +66,8 @@ def _load_local_env() -> Dict[str, str]:
     return config
 
 
-def _load_azure_secrets(secret_scope: str) -> Dict[str, str]:
-    """Load secret config from Azure Key Vault."""
+def _load_databricks_secrets(secret_scope: str) -> Dict[str, str]:
+    """Load secret config from Databricks Secrets."""
     config: Dict[str, str] = {}
 
     for key in MaskinportenSecrets.model_fields.keys():
@@ -70,3 +77,20 @@ def _load_azure_secrets(secret_scope: str) -> Dict[str, str]:
         config[key] = value
 
     return config
+
+def _load_azure_key_vault_secrets(key_vault_uri: str) -> Dict[str, str]:
+    """Load secret config from Azure Key Vault."""
+    config: Dict[str, str] = {}
+    
+    # Authenticate using DefaultAzureCredential (Azure Managed Identity or Environment Auth)
+    credential = DefaultAzureCredential()
+    client = SecretClient(vault_url=key_vault_uri, credential=credential)
+
+    for key in MaskinportenSecrets.model_fields.keys():
+        value = client.get_secret(key).value
+        if value is None:
+            raise RuntimeError(f"Missing required secret in Key Vault: {key}")
+        config[key] = value
+
+    return config
+
