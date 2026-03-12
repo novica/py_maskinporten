@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/pymaskinporten-v1.0.0...pymaskinporten-v1.1.0) (2026-03-12)
+
+
+### Features
+
+* add azure key valut logic for config ([b128692](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/b12869278e0010ff5ff26c61d85d0808a72ef0df))
+* add azure key valut logic for config ([c8c25de](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/c8c25ded73ff34f6da96b9218d86122820e5b0d5))
+
 ## [1.0.0](https://github.com/NorwegianVeterinaryInstitute/py_maskinporten/compare/pymaskinporten-v0.11.0...pymaskinporten-v1.0.0) (2026-03-09)
 
 
