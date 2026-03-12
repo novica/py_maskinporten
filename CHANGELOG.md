@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/pymaskinporten-v1.1.0...pymaskinporten-v1.1.1) (2026-03-12)
+
+
+### Bug Fixes
+
+* actions to be able to write ([ca5238d](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/ca5238ddc5f5508afe425319127a86ac1f68c87b))
+* actions to be able to write ([7aef9d4](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/7aef9d48c4b64eb9c39a9658b6f00c8b6af21783))
+* **docs:** deploy to gh pages ([4a3b900](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/4a3b900b3dcff2e89b0e99e39a4d132f0252c64d))
+* **docs:** deploy to gh pages ([0c647a1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/0c647a18b844fbfec8307b7961cb17d3d1153769))
+* **docs:** missing dependencies in workflow ([11d8672](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/11d86729de8a571e18f47485e9c90b904ade1480))
+* **docs:** missing dependencies in workflow ([7a112c3](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/7a112c3afe94c85f6396cdeac4e2f8b36653d739))
+* gh-pages deployment ([932227b](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/932227bd20580e9bd3d484b88db5ab4313d87eca))
+* gh-pages deployment ([fc78182](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/fc781825a59d20cdb3f1e4cb15a810fd50137162))
+
+
+### Documentation
+
+* add GitHub Actions workflow for building and deploying document… ([f0bf9c8](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/f0bf9c827d20d44ee578f1b8803bc9991dc0f64d))
+* add GitHub Actions workflow for building and deploying documentation to GitHub Pages ([94e4863](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/94e48634c61963da2aa7409ab2dc2d412778ef64))
+
 ## [1.1.0](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/pymaskinporten-v1.0.0...pymaskinporten-v1.1.0) (2026-03-12)
 
 
