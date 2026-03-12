@@ -35,5 +35,5 @@ jobs:
       - name: Typing checks
         run: uv run ty check
 
-      #- name: Tests
-      #  run: uv run pytest
+      - name: Tests
+        run: uv run pytest
