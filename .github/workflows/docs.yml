@@ -6,9 +6,6 @@ on:
   push:
     branches:
       - main
-    # Alternative: only build for tags.
-    # tags:
-    #   - '*'
 
 # security: restrict permissions for CI jobs.
 permissions:
@@ -28,5 +25,13 @@ jobs:
       - name: Install the project
         run: uv sync --all-extras --dev --locked
 
-      - name: Generate and deploy docs
-        run: uv run --group docs pdoc gh-deploy --force --clean
+      - name: Generate documentation
+        run: uv run pdoc ./src/pymaskinporten -o ./docs
+
+      - name: Upload docs
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
