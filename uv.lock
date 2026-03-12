@@ -582,10 +582,10 @@ requires-dist = [
     { name = "azure-identity", specifier = ">=1.25.2" },
     { name = "azure-keyvault-secrets", specifier = ">=4.10.0" },
     { name = "flask", specifier = ">=3.1.3" },
-    { name = "httpx" },
-    { name = "jwcrypto" },
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "jwcrypto", specifier = ">=1.5.6" },
     { name = "pydantic", specifier = ">=2.12.5" },
-    { name = "pyjwt" },
+    { name = "pyjwt", specifier = ">=2.11.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
 
