@@ -29,6 +29,10 @@ dev = [
   "ty>=0.0.21",
 ]
 
+docs = [
+    "pdoc",
+]
+
 [build-system]
 requires = ["uv_build>=0.9.0"]
 build-backend = "uv_build"
