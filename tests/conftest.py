@@ -3,6 +3,7 @@ import pytest
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 
+
 @pytest.fixture
 def fake_pem() -> str:
     # Minimal-but-PEM-looking string
@@ -21,7 +22,7 @@ def clear_strict_validation_env(monkeypatch):
     """
     monkeypatch.delenv("STRICT_KEY_VALIDATION", raising=False)
 
-    
+
 @pytest.fixture
 def real_private_key_pem():
     """

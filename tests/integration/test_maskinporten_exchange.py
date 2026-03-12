@@ -1,7 +1,5 @@
-import pytest
 from unittest.mock import patch
-from pymaskinporten.config import MaskinportenSecrets
-from pymaskinporten.request_token import request_maskinporten_token  
+from pymaskinporten.request_token import request_maskinporten_token
 
 
 def test_maskinporten_exchange(real_private_key_pem, monkeypatch):

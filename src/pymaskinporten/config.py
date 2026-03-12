@@ -31,7 +31,9 @@ class MaskinportenSecrets(BaseModel):
 
 
 def load_config(
-    deployment: str = "local", secret_scope: Optional[str] = None
+    deployment: str = "local",
+    secret_scope: Optional[str] = None,
+    key_vault_uri: Optional[str] = None,
 ) -> MaskinportenSecrets:
     if deployment == "local":
         load_dotenv()
@@ -43,7 +45,7 @@ def load_config(
         raw = _load_databricks_secrets(secret_scope)
 
     elif deployment == "azure":
-        if not key_vault_uri :
+        if not key_vault_uri:
             raise ValueError("key_vault_uri is required for Azure Key Vault")
         raw = _load_azure_key_vault_secrets(key_vault_uri)
 
@@ -78,10 +80,11 @@ def _load_databricks_secrets(secret_scope: str) -> Dict[str, str]:
 
     return config
 
+
 def _load_azure_key_vault_secrets(key_vault_uri: str) -> Dict[str, str]:
     """Load secret config from Azure Key Vault."""
     config: Dict[str, str] = {}
-    
+
     # Authenticate using DefaultAzureCredential (Azure Managed Identity or Environment Auth)
     credential = DefaultAzureCredential()
     client = SecretClient(vault_url=key_vault_uri, credential=credential)
@@ -93,4 +96,3 @@ def _load_azure_key_vault_secrets(key_vault_uri: str) -> Dict[str, str]:
         config[key] = value
 
     return config
-

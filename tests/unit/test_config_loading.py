@@ -1,6 +1,6 @@
-
 import pytest
 from pymaskinporten.config import load_config, MaskinportenSecrets
+
 
 @pytest.mark.unit
 def test_load_config_returns_model(monkeypatch, fake_pem):

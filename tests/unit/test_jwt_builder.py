@@ -1,9 +1,9 @@
 import jwt
-import pytest
 from pymaskinporten.config import MaskinportenSecrets
 from pymaskinporten.request_token import build_jwt
 
 TEST_MASKINPORTEN_ISSUER = "https://test.maskinporten.no/token"
+
 
 def test_jwt_contains_expected_claims(real_private_key_pem):
     cfg = MaskinportenSecrets(
@@ -14,8 +14,8 @@ def test_jwt_contains_expected_claims(real_private_key_pem):
     )
 
     token = build_jwt(cfg, TEST_MASKINPORTEN_ISSUER)
-    
-    assert isinstance(token, str) 
+
+    assert isinstance(token, str)
 
     decoded = jwt.decode(token, options={"verify_signature": False})
 

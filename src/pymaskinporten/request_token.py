@@ -4,15 +4,16 @@ from jwt import encode
 import uuid
 from pymaskinporten.config import load_config
 
+
 def build_jwt(cfg, issuer_url: str) -> str:
     """
     A helper function to build a JWT assertion for Maskinporten token requests.
 
-    Args:        
+    Args:
         cfg: The configuration object containing necessary credentials.
         issuer_url (str): The URL of the token issuer.
 
-    Returns:    
+    Returns:
         str: The encoded JWT assertion.
     """
 
