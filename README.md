@@ -4,7 +4,7 @@
 ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fnorwegianveterinaryinstitute%2Fpymaskinporten%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)
 [![CI](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/ci.yml/badge.svg?branch=main)](.github/workflows/ci.yml)
 [![release-please](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/release-please.yml/badge.svg)](release-please-config.json)
-[![Docs (pdoc to GitHub Pages)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs-pages.yml/badge.svg)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs.yml)
+[![Docs (pdoc to GitHub Pages)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs.yml/badge.svg)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs.yml)
 [![Dependabot](https://img.shields.io/github/issues-search?query=repo%3Anorwegianveterinaryinstitute%2Fpymaskinporten%20is%3Apr%20author%3Aapp%2Fdependabot%20is%3Aopen&label=Dependabot%20PRs)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/issues?q=is%3Apr%20is%3Aopen%20author%3Aapp%2Fdependabot)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
