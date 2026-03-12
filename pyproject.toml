@@ -24,7 +24,7 @@ pymaskinporten = "pymaskinporten:main"
 
 [dependency-groups]
 dev = [
-  "pytest>=8.3.3",
+  "pytest>=9.0.0",
   "ruff>=0.6.1",
   "ty>=0.0.21",
 ]
@@ -32,3 +32,7 @@ dev = [
 [build-system]
 requires = ["uv_build>=0.9.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "pymaskinporten"
+module-root = "src"

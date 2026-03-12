@@ -4,6 +4,35 @@ from jwt import encode
 import uuid
 from pymaskinporten.config import load_config
 
+def build_jwt(cfg, issuer_url: str) -> str:
+    """
+    A helper function to build a JWT assertion for Maskinporten token requests.
+
+    Args:        
+        cfg: The configuration object containing necessary credentials.
+        issuer_url (str): The URL of the token issuer.
+
+    Returns:    
+        str: The encoded JWT assertion.
+    """
+
+    header = {"kid": cfg.KID}
+    if not header["kid"]:
+        raise ValueError("JWK must include 'kid'.")
+
+    payload = {
+        "aud": issuer_url,
+        "iss": cfg.MASKINPORTEN_CLIENT_ID,
+        "scope": cfg.SCOPE,
+        "iat": datetime.now(tz=timezone.utc),
+        "exp": datetime.now(tz=timezone.utc) + timedelta(minutes=1),
+        "jti": str(uuid.uuid4()),
+    }
+
+    jwt_assertion = encode(payload, cfg.PRIVATE_KEY, algorithm="RS256", headers=header)
+
+    return jwt_assertion
+
 
 def request_maskinporten_token(api_env: str) -> tuple:
     """
@@ -29,21 +58,7 @@ def request_maskinporten_token(api_env: str) -> tuple:
 
     cfg = load_config()
 
-    header = {"kid": cfg.KID}
-    if not header["kid"]:
-        raise ValueError("JWK must include 'kid'.")
-
-    payload = {
-        "aud": issuer_url,
-        "iss": cfg.MASKINPORTEN_CLIENT_ID,
-        "scope": cfg.SCOPE,
-        "iat": datetime.now(tz=timezone.utc),
-        "exp": datetime.now(tz=timezone.utc) + timedelta(minutes=1),
-        "jti": str(uuid.uuid4()),
-    }
-
-    private_key = cfg.PRIVATE_KEY
-    jwt_assertion = encode(payload, private_key, algorithm="RS256", headers=header)
+    jwt_assertion = build_jwt(cfg, issuer_url)
 
     response = httpx.post(
         issuer_url,

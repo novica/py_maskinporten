@@ -1,0 +1,31 @@
+[pytest]
+# Where pytest should discover tests
+testpaths = ["tests"]
+
+# Add src to Python path so imports work 
+pythonpath = ["src"]
+
+# Naming conventions for tests
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+# Add verbose summary for skipped/xfailed tests
+addopts = ["-ra"]
+
+# Suppress noisy warnings from dependencies
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning"
+]
+
+# Default environment variables for ALL tests
+env = [
+    "STRICT_KEY_VALIDATION=false"
+]
+
+# Custom markers
+markers = [
+    "unit: unit tests",
+    "integration: tests that mock network or external services"
+]
