@@ -43,7 +43,9 @@ print(f"Access Token: {access_token}")
 print(f"Expires In: {expires_in} seconds")
 ```
 
-Or with docker if you want to test the library through a web browser the image opens a `flask` app:
+## Docker container 
+
+If you want to test the library through a web browser the image opens a `flask` app:
 
 ```bash
 cat > .env <<EOF
