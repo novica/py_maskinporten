@@ -51,6 +51,7 @@ cat > .env <<EOF
 >MASKINPORTEN_CLIENT_ID="your-client-id"
 >KID="your-kid"
 >SCOPE="your-scope"
+>STRICT_KEY_VALIDATION=false
 >EOF
 
 docker run -p 5000:5000 --env-file .env ghcr.io/norwegianveterinaryinstitute/pymaskinporten:main
