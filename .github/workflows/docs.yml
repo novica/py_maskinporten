@@ -27,7 +27,7 @@ jobs:
         run: uv sync --group docs
 
       - name: Generate documentation
-        run: uv run pdoc ./src/pymaskinporten -o ./docs
+        run: uv run pdoc -- mermaid ./src/pymaskinporten -o ./docs
 
       - name: Upload docs
         uses: actions/upload-pages-artifact@v3
