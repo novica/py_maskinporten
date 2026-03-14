@@ -2,7 +2,7 @@
   "packages": {
     ".": {
       "release-type": "python",
-      "package-name": "pymaskinporten",
+      "package-name": "",
       "extra-files": ["pyproject.toml",
         {
           "path": "uv.lock",
