@@ -8,5 +8,9 @@ Provides a set of functions to fetch a token from Maskinporten
 """
 
 
-def main() -> None:
-    print("Hello from pymaskinporten!")
+def main() -> str:
+    return "Hello from pymaskinporten!"
+
+
+if __name__ == "__main__":
+    print(main())
