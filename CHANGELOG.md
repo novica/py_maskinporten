@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.0.0](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/v1.1.1...v2.0.0) (2026-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* to avoid confusion between - and _ in imports and package name, we rename the project to 'pymaskinporten'
+
+### Features
+
+* add azure key valut logic for config ([b128692](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/b12869278e0010ff5ff26c61d85d0808a72ef0df))
+* add azure key valut logic for config ([c8c25de](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/c8c25ded73ff34f6da96b9218d86122820e5b0d5))
+* add logic to handle secrets from azure key vault in databricks ([b7a5067](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/b7a50672e98da498813ffdabb6e4585b5ecf24b9))
+* add pydantic model for config ([5c9db87](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/5c9db875f24b0317e390816bbdb8a963d10d9643))
+* flask app for token fetching ([4713527](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/4713527bb414088a5f52bfc62490f3f4fe7d09bd))
+* rename project to not include dashes or underscores in the name ([ff11be6](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/ff11be6263a1321940fecc9225290748e7ad62f2))
+
+
+### Bug Fixes
+
+* actions to be able to write ([ca5238d](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/ca5238ddc5f5508afe425319127a86ac1f68c87b))
+* actions to be able to write ([7aef9d4](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/7aef9d48c4b64eb9c39a9658b6f00c8b6af21783))
+* docker image runs the app ([be6ac59](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/be6ac5970496aa98e47aa03257e0d0edb0474af6))
+* **docs:** deploy to gh pages ([4a3b900](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/4a3b900b3dcff2e89b0e99e39a4d132f0252c64d))
+* **docs:** deploy to gh pages ([0c647a1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/0c647a18b844fbfec8307b7961cb17d3d1153769))
+* **docs:** missing dependencies in workflow ([11d8672](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/11d86729de8a571e18f47485e9c90b904ade1480))
+* **docs:** missing dependencies in workflow ([7a112c3](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/7a112c3afe94c85f6396cdeac4e2f8b36653d739))
+* don't set the env vars in dockerfile ([b569cc1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/b569cc10fb7b6fe666b1f84a296b6a66346a9127))
+* gh-pages deployment ([932227b](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/932227bd20580e9bd3d484b88db5ab4313d87eca))
+* gh-pages deployment ([fc78182](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/fc781825a59d20cdb3f1e4cb15a810fd50137162))
+* update dependencies in toml ([c1ab5ff](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/c1ab5ff201b50576a6c0adee1c22eb1200ad496d))
+
+
+### Documentation
+
+* add GitHub Actions workflow for building and deploying document… ([f0bf9c8](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/f0bf9c827d20d44ee578f1b8803bc9991dc0f64d))
+* add GitHub Actions workflow for building and deploying documentation to GitHub Pages ([94e4863](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/94e48634c61963da2aa7409ab2dc2d412778ef64))
+* Add mermaid diagram for token request flow ([52516b6](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/52516b65886ba7689f8c8cc0dcbba305015ed9a5))
+* update readme ([5e56cc4](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/5e56cc40d6dd7d753c7247cb27979bdacf3fbdbc))
+* update README.md ([40ee683](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/40ee683475508387f5e1d99da6fc86a1f6bef2f8))
+* Update README.md ([a1f8eda](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/a1f8edac704b4dc479d80c1e82712bf6abcf9421))
+
 ## [1.1.1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/pymaskinporten-v1.1.0...pymaskinporten-v1.1.1) (2026-03-12)
 
 
