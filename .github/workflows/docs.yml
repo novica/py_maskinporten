@@ -30,7 +30,7 @@ jobs:
         run: uv run pdoc --mermaid ./src/pymaskinporten -o ./docs
 
       - name: Upload docs
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs
 
