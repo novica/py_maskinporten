@@ -66,7 +66,12 @@ def get_token():
 
 
 def main():
-    debug_enabled = os.getenv("FLASK_DEBUG", "false").strip().lower() in ("1", "true", "yes", "on")
+    debug_enabled = os.getenv("FLASK_DEBUG", "false").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
     app.run(debug=debug_enabled, host="0.0.0.0")
 
 
