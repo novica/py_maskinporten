@@ -4,10 +4,7 @@ type: software
 license: Apache-2.0
 title: 'pymaskinporten: a python library for fetching Maskinporten tokens'
 version: 1.1.1
-abstract: 'pymaskinporten is a Python library that simplifies the process of 
-  obtaining Maskinporten tokens for secure API access. It provides an easy-to-use
-   interface for developers to authenticate and retrieve tokens, enabling seamless
-   integration with services that require Maskinporten authentication.'
+abstract: 'pymaskinporten is a Python library that simplifies the process of obtaining Maskinporten tokens for secure API access. It provides an easy-to-use interface for developers to authenticate and retrieve tokens, enabling seamless integration with services that require Maskinporten authentication.'
 authors:
   - family-names: Nakov
     given-names: Novica
@@ -19,4 +16,4 @@ contact:
     given-names: Novica
     email: nnovica@gmail.com
     orcid: https://orcid.org/0009-0005-7773-7718
-date-released: 2026-03-13T15:30:00.000Z
+date-released: "2026-07-03"
