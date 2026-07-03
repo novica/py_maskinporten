@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, timezone
-import httpx
+import httpx2 as httpx
 from jwt import encode
 import uuid
 from pymaskinporten.config import load_config
