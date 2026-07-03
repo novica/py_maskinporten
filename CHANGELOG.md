@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/v1.1.1...v1.1.2) (2026-07-03)
+
+
+### Documentation
+
+* update docs to use great-docs. ([da3ebb0](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/da3ebb0629556543a23adba02b79fbdadf0c73d9))
+* update docs to use great-docs. ([fdbbf50](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/commit/fdbbf50c2c6823a12f43338cfee4f538015104e6))
+
 ## [1.1.1](https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/compare/pymaskinporten-v1.1.0...pymaskinporten-v1.1.1) (2026-03-12)
 
 
