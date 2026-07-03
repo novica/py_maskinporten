@@ -1,4 +1,4 @@
-# adopted from https://pdoc.dev/docs/pdoc.html
+# built with great-docs: https://posit-dev.github.io/great-docs/
 name: website
 
 # build the documentation whenever there are new commits on main
@@ -23,16 +23,18 @@ jobs:
 
       - uses: astral-sh/setup-uv@v7
 
+      - uses: quarto-dev/quarto-actions/setup@v2
+
       - name: Install docs deps
         run: uv sync --group docs
 
       - name: Generate documentation
-        run: uv run pdoc --mermaid ./src/pymaskinporten -o ./docs
+        run: uv run great-docs build
 
       - name: Upload docs
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./docs
+          path: ./great-docs/_site
 
   deploy:
     runs-on: ubuntu-latest

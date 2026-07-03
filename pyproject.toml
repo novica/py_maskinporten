@@ -18,6 +18,13 @@ dependencies = [
   "python-dotenv>=1.2.2",
 ]
 
+[project.urls]
+Homepage = "https://github.com/NorwegianVeterinaryInstitute/pymaskinporten"
+Repository = "https://github.com/NorwegianVeterinaryInstitute/pymaskinporten"
+Documentation = "https://norwegianveterinaryinstitute.github.io/pymaskinporten"
+"Bug Tracker" = "https://github.com/NorwegianVeterinaryInstitute/pymaskinporten/issues"
+
+
 [project.scripts]
 maskinporten_web = "pymaskinporten.app:main"
 pymaskinporten = "pymaskinporten:main"
@@ -30,7 +37,7 @@ dev = [
 ]
 
 docs = [
-    "pdoc",
+    "great-docs",
 ]
 
 [build-system]

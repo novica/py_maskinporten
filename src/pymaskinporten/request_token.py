@@ -2,10 +2,10 @@ from datetime import datetime, timedelta, timezone
 import httpx
 from jwt import encode
 import uuid
-from pymaskinporten.config import load_config
+from pymaskinporten.config import load_config, MaskinportenSecrets
 
 
-def build_jwt(cfg, issuer_url: str) -> str:
+def build_jwt(cfg: MaskinportenSecrets, issuer_url: str) -> str:
     """
     A helper function to build a JWT assertion for Maskinporten token requests.
 
