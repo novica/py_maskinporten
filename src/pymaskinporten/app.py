@@ -59,8 +59,9 @@ def get_token():
     try:
         access_token, expires_in = request_maskinporten_token(api_env=env)
         return jsonify({"access_token": access_token, "expires_in": expires_in})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except Exception:
+        app.logger.exception("Failed to request Maskinporten token")
+        return jsonify({"error": "An internal error has occurred."}), 500
 
 
 def main():
