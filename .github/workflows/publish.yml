@@ -5,6 +5,9 @@ on:
     tags:
       # Publish on any tag starting with a `v`, e.g., v0.1.0
       - v*
+  # release-please pushes tags using GITHUB_TOKEN, which does not trigger
+  # other workflows - allow a manual run against the tagged ref instead.
+  workflow_dispatch:
 
 jobs:
   run:
