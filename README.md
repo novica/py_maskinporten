@@ -2,6 +2,7 @@
 
 <!-- badges start-->
 ![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fnorwegianveterinaryinstitute%2Fpymaskinporten%2Frefs%2Fheads%2Fmain%2Fpyproject.toml)
+[![PyPI version](https://img.shields.io/pypi/v/pymaskinporten.svg)](https://pypi.org/project/pymaskinporten/)
 [![CI](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/ci.yml/badge.svg?branch=main)](.github/workflows/ci.yml)
 [![release-please](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/release-please.yml/badge.svg)](release-please-config.json)
 [![Docs (pdoc to GitHub Pages)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs.yml/badge.svg)](https://github.com/norwegianveterinaryinstitute/pymaskinporten/actions/workflows/docs.yml)
