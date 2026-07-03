@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, render_template, request
 from pymaskinporten.config import load_config
 from pymaskinporten.request_token import request_maskinporten_token
@@ -65,7 +66,8 @@ def get_token():
 
 
 def main():
-    app.run(debug=True, host="0.0.0.0")
+    debug_enabled = os.getenv("FLASK_DEBUG", "false").strip().lower() in ("1", "true", "yes", "on")
+    app.run(debug=debug_enabled, host="0.0.0.0")
 
 
 if __name__ == "__main__":
